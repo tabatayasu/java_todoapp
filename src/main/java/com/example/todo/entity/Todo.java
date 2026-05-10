@@ -26,7 +26,7 @@ public class Todo {
     @Enumerated(EnumType.STRING)     //Enum型のimportanceフィールドを追加
     private Importance importance;    //Enum型のimportanceフィールドを追加
     private LocalDateTime deadline;
-
+    private boolean completed;
     private LocalDateTime completeAt;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;

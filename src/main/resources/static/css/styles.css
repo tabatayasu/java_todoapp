@@ -1,0 +1,508 @@
+/* ================================
+   基本スタイル
+   ================================ */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 8px;
+    max-width: 100%;
+}
+
+h1 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+/* ================================
+   フォーム関連
+   ================================ */
+form {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.add-form {
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    gap: 18px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+}
+
+input, select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+/* ================================
+   ボタン
+   ================================ */
+button {
+    background: #6c63ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.button.primary {
+    background: #6c63ff;
+}
+
+.button.edit {
+    background: #4caf50;
+}
+
+.button.delete {
+    background: #f44336;
+}
+
+/* ================================
+   統計カード
+   ================================ */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.stat-title {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ================================
+   テーブル
+   ================================ */
+.table-container {
+    width: calc(100vw - 16px);
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    table-layout: fixed;
+    font-size: 14px;
+}
+
+.todo-table th, .todo-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.todo-table th {
+    background: #f5f6fa;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+/* 列幅設定 */
+.todo-table th:nth-child(1), .todo-table td:nth-child(1) { width: 4%; }    /* 完了 */
+.todo-table th:nth-child(2), .todo-table td:nth-child(2) { width: 18%; }   /* タイトル */
+.todo-table th:nth-child(3), .todo-table td:nth-child(3) { width: 25%; }   /* 説明 */
+.todo-table th:nth-child(4), .todo-table td:nth-child(4) { width: 8%; }    /* 重要度 */
+.todo-table th:nth-child(5), .todo-table td:nth-child(5) { width: 20%; }   /* 締切 */
+.todo-table th:nth-child(6), .todo-table td:nth-child(6) { width: 25%; }   /* アクション */
+
+.todo-row:hover {
+    background: #f0f8ff;
+    cursor: pointer;
+}
+
+.checkbox-cell {
+    text-align: center;
+}
+
+.title-cell {
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ================================
+   バッジ・ステータス
+   ================================ */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    display: inline-block;
+}
+
+.badge.high {
+    background: #ff6b6b;
+}
+
+.badge.middle {
+    background: #f9a825;
+}
+
+.badge.low {
+    background: #4caf50;
+}
+
+.overdue {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.due-soon {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+/* ================================
+   リスト（未使用だが保持）
+   ================================ */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.todo-title {
+    font-weight: bold;
+}
+
+/* ================================
+   ヘッダー
+   ================================ */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header-container h1 {
+    margin: 0;
+    flex: 1;
+}
+
+.button.history {
+    background: #2196F3;
+    white-space: nowrap;
+}
+
+.button.history:hover {
+    opacity: 0.9;
+}
+
+/* ================================
+   モーダル
+   ================================ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.close {
+    color: #999;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* ================================
+   履歴リスト
+   ================================ */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.history-item:hover {
+    background: #f0f8ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-content {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.history-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.history-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+.history-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 12px;
+}
+
+.history-meta .deadline {
+    color: #999;
+}
+
+.restore-btn {
+    background: #4caf50;
+    padding: 6px 16px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.restore-btn:hover {
+    opacity: 0.9;
+}
+
+/* ================================
+   レスポンシブ対応
+   ================================ */
+@media (max-width: 768px) {
+    .add-form {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .add-form button {
+        grid-column: span 1;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    input, select {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .add-form {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .todo-table {
+        font-size: 12px;
+    }
+
+    .todo-table th, .todo-table td {
+        padding: 8px;
+    }
+}

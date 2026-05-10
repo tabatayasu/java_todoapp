@@ -51,4 +51,59 @@ public class TodoService {
         }
     }
     //編集機能メソッド//
+    
+    //サマリー機能メソッド
+    public long getTotalCount() {
+        return repository.count();
+    }
+
+    public long getIncompleteCount() {
+        return repository.findAll().stream()
+            .filter(todo -> todo.getCompleteAt() == null)
+            .count();
+    }
+
+    public long getOverdueCount() {
+        LocalDateTime now = LocalDateTime.now();
+        return repository.findAll().stream()
+            .filter(todo -> todo.getCompleteAt() == null && todo.getDeadline() != null && todo.getDeadline().isBefore(now))
+            .count();
+    }
+
+    public long getDueSoonCount() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime threeDaysLater = now.plusDays(3);
+        return repository.findAll().stream()
+            .filter(todo -> todo.getCompleteAt() == null && todo.getDeadline() != null && todo.getDeadline().isBefore(threeDaysLater))
+            .count();
+    }
+
+    public void toggleComplete(Long id) {
+        Todo todo = repository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Not found: " + id));
+
+        boolean nowCompleted = !todo.isCompleted();
+        todo.setCompleted(nowCompleted);
+
+        if (nowCompleted) {
+            todo.setCompleteAt(LocalDateTime.now());
+        } else {
+            todo.setCompleteAt(null);
+        }
+
+        repository.save(todo);
+    }
+
+    public List<Todo> findIncomplete() {
+        return repository.findAll().stream()
+            .filter(todo -> todo.getCompleteAt() == null)
+            .toList();
+    }
+
+    // 完了したTODOを取得
+    public List<Todo> findCompleted() {
+        return repository.findAll().stream()
+            .filter(todo -> todo.getCompleteAt() != null)
+            .toList();
+    }
 }
